@@ -116,3 +116,27 @@ body {
 .agregar-carrito:hover {
     background-color: #000000; /* Color del botón al pasar el ratón */
 }
+
+/* Estilo para los botones de Comprar */
+.btn-comprar {
+    display: inline-block;
+    background-color: #000; /* Fondo negro */
+    color: #fff; /* Texto blanco */
+    text-decoration: none; /* Sin subrayado */
+    padding: 10px 20px; /* Espaciado interno */
+    font-size: 16px; /* Tamaño del texto */
+    border: none; /* Sin borde */
+    border-radius: 5px; /* Bordes redondeados */
+    transition: background-color 0.3s ease, transform 0.2s ease; /* Transiciones suaves */
+    cursor: pointer; /* Mano al pasar el mouse */
+}
+
+.btn-comprar:hover {
+    background-color: #444; /* Color de fondo al pasar el mouse */
+    transform: scale(1.05); /* Pequeño efecto de zoom */
+}
+
+.btn-comprar:active {
+    background-color: #222; /* Color más oscuro al hacer clic */
+    transform: scale(0.95); /* Leve reducción de tamaño al presionar */
+}
