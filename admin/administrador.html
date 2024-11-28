@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Administrador</title>
+    <link rel="stylesheet" href="/admin/admin.css">
+</head>
+<body>
+    <!-- Botón de cerrar sesión -->
+    <a href="/index.html"><button class="logout-btn">Cerrar sesión</button></a>
+
+    <!-- Contenedor para agregar productos -->
+    <div id="addProductSection" class="add-product-container">
+        <h2>Agregar Productos</h2>
+        <form id="addProductForm" class="add-product-form">
+            <div class="input-group">
+                <label for="productName">Nombre del Producto</label>
+                <input type="text" id="productName" name="productName" placeholder="Nombre del producto" required>
+            </div>
+            <div class="input-group">
+                <label for="productPrice">Precio</label>
+                <input type="text" id="productPrice" name="productPrice" placeholder="Precio del producto" required>
+            </div>
+            <div class="input-group">
+                <label for="productImage">Subir Imagen</label>
+                <input type="file" id="productImage" name="productImage" accept="image/*" required>
+            </div>
+            <div class="input-group">
+                <label for="productCategory">Categoría</label>
+                <select id="productCategory" name="productCategory" required>
+                    <option value="anillos">Anillos</option>
+                    <option value="aros">Aros</option>
+                    <option value="colgantes">Colgantes</option>
+                    <option value="ofertas">Ofertas</option>
+                </select>
+            </div>
+            <div class="input-group">
+                <label for="productDescription">Descripción</label>
+                <textarea id="productDescription" name="productDescription" placeholder="Descripción del producto" required></textarea>
+            </div>
+            <button type="submit" class="btn">Agregar Producto</button>
+        </form>
+    </div>
+
+    <!-- Contenedor para listar productos -->
+    <div class="products">
+        <h2>Productos Agregados</h2>
+        <div id="productList" class="product-content"></div>
+    </div>
+
+    <script src="/admin/admin.js"></script>
+</body>
+</html>

@@ -1,165 +1,180 @@
+/* Estilo general */
 body {
-    font-family: Arial, sans-serif;
-    background: #121212; /* Fondo oscuro */
-    height: 100vh;
-    margin: 0;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    color: #f0f0f0; /* Texto claro */
-  }
-  
-  .hidden {
-    display: none;
-  }
-  
-  .login-container,
-  .add-product-container {
-    background: #1e1e1e; /* Fondo oscuro para el contenedor */
-    padding: 30px;
-    border-radius: 12px; /* Bordes más redondeados */
-    box-shadow: 0 8px 12px rgba(0, 0, 0, 0.5); /* Sombra más pronunciada */
-    width: 350px;
-    margin-bottom: 20px;
-    text-align: center;
-  }
-  
-  .input-group {
-    margin-bottom: 20px; /* Mayor separación entre campos */
-  }
-  
-  .input-group input,
-  .input-group textarea,
-  .input-group select,
-  .input-group input[type="file"] {
-    width: 100%;
-    padding: 12px;
-    border: none;
-    border-radius: 8px; /* Bordes redondeados */
-    background: #2e2e2e; /* Fondo oscuro para campos */
-    color: #f0f0f0; /* Texto claro */
-    font-size: 16px;
-    margin-top: 5px;
-  }
-  
-  textarea {
-    resize: none;
-  }
-  
-  .btn {
-    width: 100%;
-    padding: 12px;
-    background: #212121; /* Botón oscuro */
-    color: #ffffff;
-    border: 1px solid #ffffff; /* Bordes blancos */
-    border-radius: 8px;
-    font-size: 18px;
-    cursor: pointer;
-    transition: background 0.3s, transform 0.2s;
-  }
-  
-  .btn:hover {
-    background: #383838; /* Color más claro al pasar el ratón */
-    transform: scale(1.05); /* Efecto de agrandamiento */
-  }
-  
-  .error-msg {
-    color: #ff6b6b; /* Rojo claro para el error */
-    font-size: 14px;
-    margin-top: 10px;
-    display: none;
-  }
-  
-  .success-msg {
-    color: #4caf50; /* Verde claro para el éxito */
-    font-size: 14px;
-    text-align: center;
-    margin-top: 10px;
-    display: none;
-  }
-  
-  /* Ajuste de márgenes y paddings */
-  .login-container h2,
-  .add-product-container h2 {
-    margin-bottom: 20px;
-  }
-  
-  .input-group label {
-    font-size: 14px;
-    font-weight: bold;
-    margin-bottom: 5px;
-    display: block;
-    text-align: left; /* Ajustar alineación */
-  }
-  
+  font-family: Arial, sans-serif;
+  background: #121212; /* Fondo oscuro */
+  margin: 0;
+  min-height: 100vh; /* Altura mínima de la ventana */
+  overflow-y: scroll; /* Permitir desplazamiento vertical */
+  color: #f0f0f0; /* Texto claro */
+  display: block; /* Evita restricciones de flexbox */
+}
 
-  /* Estilos para la lista de productos */
-.product-list-container {
-    width: 100%;
-    background: #1e1e1e;
-    padding: 20px;
-    margin-top: 30px;
-    border-radius: 12px;
-    box-shadow: 0 8px 12px rgba(0, 0, 0, 0.5);
-  }
-  
-  .product-list {
-    list-style-type: none;
-    padding: 0;
-  }
-  
-  .product-list li {
-    background: #2e2e2e;
-    margin-bottom: 15px;
-    padding: 15px;
-    border-radius: 8px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-  }
-  
-  .product-list img {
-    width: 50px;
-    height: 50px;
-    object-fit: cover;
-    border-radius: 5px;
-  }
-  
-  .product-list button {
-    background: #ff6b6b;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    padding: 5px 10px;
-    cursor: pointer;
-  }
-  
-  .product-list button:hover {
-    background: #ff4747;
-  }
-  
-  /* Estilos para el botón de volver al inicio */
-.back-to-home-btn {
-    position: absolute;
-    top: 20px;
-    left: 20px;
-    padding: 10px 20px;
-    background-color: white;
-    color: black;
-    font-size: 16px;
-    font-weight: bold;
-    border: 2px solid black;
-    border-radius: 5px;
-    text-decoration: none;
-    transition: background-color 0.3s, color 0.3s;
-  }
-  
-  .back-to-home-btn:hover {
-    background-color: black;
-    color: white;
-  }
-  
-  .hidden {
-    display: none;
+/* Contenedor para productos */
+.products {
+  width: 100%;
+  max-width: 1200px;
+  margin: 20px auto;
+  padding: 20px;
+  box-sizing: border-box; /* Evita desbordes por padding */
+}
+
+.product-content {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 20px;
+}
+
+/* Tarjetas de producto */
+.product {
+  background: #1e1e1e;
+  border-radius: 8px;
+  box-shadow: 0 8px 12px rgba(0, 0, 0, 0.5);
+  overflow: hidden;
+  transition: transform 0.3s ease-in-out;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+}
+
+.product:hover {
+  transform: scale(1.05);
+}
+
+.product img {
+  width: 100%;
+  max-height: 200px;
+  object-fit: cover;
+  border-radius: 8px;
+  margin-bottom: 15px;
+}
+
+.product-txt {
+  text-align: center;
+  width: 100%;
+}
+
+.product-txt h3 {
+  margin: 10px 0;
+  font-size: 1.2rem;
+  color: #f0f0f0;
+}
+
+.product-txt p {
+  margin: 5px 0;
+  font-size: 1rem;
+  color: #bbbbbb;
+}
+
+.precio {
+  font-weight: bold;
+  font-size: 1.1rem;
+  color: #4caf50;
+}
+
+.btn-delete {
+  margin-top: 10px;
+  padding: 8px 12px;
+  background: #ff6b6b;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.btn-delete:hover {
+  background: #ff4747;
+}
+
+/* Contenedor del formulario */
+.add-product-container {
+  background: linear-gradient(145deg, #1e1e1e, #252525); /* Fondo degradado */
+  padding: 30px;
+  border-radius: 16px;
+  box-shadow: 0 10px 15px rgba(0, 0, 0, 0.4), inset 0 -2px 4px rgba(255, 255, 255, 0.05);
+  width: 100%;
+  max-width: 400px;
+  margin: 20px auto;
+  text-align: center;
+  transition: transform 0.2s, box-shadow 0.3s;
+  overflow-y: auto; /* Permite desplazamiento interno si es necesario */
+  max-height: 80vh; /* Evita que el formulario ocupe demasiado espacio */
+}
+
+.add-product-container:hover {
+  transform: translateY(-5px); /* Efecto de levitación */
+  box-shadow: 0 15px 25px rgba(0, 0, 0, 0.5), inset 0 -3px 6px rgba(255, 255, 255, 0.1);
+}
+
+/* Estilo de los campos de entrada */
+.add-product-container input[type="text"],
+.add-product-container textarea,
+.add-product-container select,
+.add-product-container input[type="file"] {
+  width: 100%;
+  padding: 12px;
+  margin-bottom: 15px;
+  border: 1px solid #2e2e2e;
+  border-radius: 8px;
+  background: #2e2e2e;
+  color: #f0f0f0;
+  font-size: 16px;
+  transition: all 0.3s ease;
+}
+
+.add-product-container input:focus,
+.add-product-container textarea:focus,
+.add-product-container select:focus {
+  outline: none;
+  border-color: #4caf50; /* Resaltar con color verde */
+  box-shadow: 0 0 5px rgba(76, 175, 80, 0.5);
+}
+
+/* Botón de enviar */
+.add-product-container .btn {
+  width: 100%;
+  padding: 12px;
+  background: linear-gradient(145deg, #4caf50, #43a047); /* Degradado verde */
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 18px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+}
+
+.add-product-container .btn:hover {
+  background: #43a047;
+  box-shadow: 0 8px 12px rgba(76, 175, 80, 0.3);
+  transform: translateY(-2px);
+}
+
+/* Etiquetas del formulario */
+.add-product-container label {
+  font-size: 14px;
+  font-weight: bold;
+  color: #f0f0f0;
+  display: block;
+  margin-bottom: 5px;
+  text-align: left;
+}
+
+/* Botón de cerrar sesión */
+.logout-btn {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  background-color: #D4AF37; /* Dorado suave */
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+.logout-btn:hover {
+  background-color: #FF6F61; /* Rojo coral al pasar el cursor */
 }

@@ -1,5 +1,3 @@
-// localStorageManager.js
-
 const STORAGE_KEY = "productos";
 
 // Obtener productos desde localStorage
@@ -13,10 +11,10 @@ export function saveProductos(productos) {
     localStorage.setItem(STORAGE_KEY, JSON.stringify(productos));
 }
 
-// Agregar un producto nuevo
+// Agregar un producto nuevo al inicio
 export function addProducto(producto) {
     const productos = getProductos();
-    productos.push(producto);
+    productos.unshift(producto); // Agregar al inicio para que el producto más reciente sea el primero
     saveProductos(productos);
 }
 
@@ -33,38 +31,3 @@ export function getProductosPorCategoria(categoria) {
     return productos.filter(producto => producto.categoria === categoria);
 }
 
-export function getProductos() {
-    return JSON.parse(localStorage.getItem("productos")) || [];
-}
-
-export function saveProductos(productos) {
-    localStorage.setItem("productos", JSON.stringify(productos));
-}
-
-export function addProducto(producto) {
-    const productos = getProductos();
-    productos.push(producto);
-    saveProductos(productos);
-}
-
-export function deleteProducto(id) {
-    const productos = getProductos();
-    const nuevosProductos = productos.filter((producto) => producto.id !== id);
-    saveProductos(nuevosProductos);
-}
-
-export function getProductos() {
-    return JSON.parse(localStorage.getItem("productos")) || [];
-}
-
-export function addProducto(producto) {
-    const productos = getProductos();
-    productos.push(producto);
-    localStorage.setItem("productos", JSON.stringify(productos));
-}
-
-export function deleteProducto(id) {
-    let productos = getProductos();
-    productos = productos.filter((producto) => producto.id !== id);
-    localStorage.setItem("productos", JSON.stringify(productos));
-}
